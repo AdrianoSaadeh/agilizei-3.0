@@ -27,3 +27,11 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm install
     - run: npm run cypress:run
+    
+    #upload dos videos gerados
+    - name: Upload Videos
+      uses: action/upload-artifact@v2.2.0
+      if: always()
+      with:
+        name: videos
+        path: cypress/videos
